@@ -17,13 +17,11 @@
         "pretest": "gulp build",
         "test": "gscan .",
         "test:ci": "gscan --fatal --verbose .",
-        "preship": "yarn test",
-        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
+        "preship": "yarn test"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org"
+        "name": "Michael Lynam",
+        "email": "mlynam@abhs.k12.nm.us"
     },
     "gpm": {
         "type": "theme",

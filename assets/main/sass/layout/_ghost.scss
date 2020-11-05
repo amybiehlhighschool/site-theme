@@ -184,6 +184,10 @@
 .kg-image {
     width: 400px;
 
+    .kg-width-wide & {
+        width: 100%;
+    }
+
     @include breakpoint("<=small") {
         width: 100%;
     }

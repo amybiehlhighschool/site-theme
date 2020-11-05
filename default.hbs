@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "main/css/main.css"}}" />
+    <noscript>
+        <link rel="stylesheet" href="{{asset "main/css/noscript.css"}}" /></noscript>
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+    {{#if @site.cover_image}}
+    <style>
+        #wrapper>.bg {
+            background-image: url({{asset "images/overlay.png"}}),
+            linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+            url("{{img_url @site.cover_image}}")
+        }
+    </style>
+    {{/if}}
+
+</head>
+
+<body class="is-preload {{body_class}}">
+
+    <div id="wrapper" {{#is "home"}}class="fade-in" {{/is}}>
+
+        {{!-- Intro --}}
+        {{#is "home"}}
+        <div id="intro">
+            <h1>{{@site.title}}</h1>
+            <p>{{@site.description}}</p>
+            <ul class="actions">
+                <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+            </ul>
+        </div>
+        {{/is}}
+
+        {{!-- Header --}}
+        <header id="header">
+            {{#if @site.logo}}
+            <a href="{{@site.url}}" class="logo image"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>
+            {{else}}
+            <a href="{{@site.url}}" class="logo">{{@site.title}}</a>
+            {{/if}}
+        </header>
+
+        {{!-- Nav --}}
+        {{#if @site.navigation}}
+        {{navigation}}
+        {{/if}}
+
+        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+        {{{body}}}
+
+        {{!-- The footer at the very bottom of the screen --}}
+        <div id="copyright">
+            <ul>
+                <li>&copy; {{@site.title}}</li>
+                <li>(505) 299-9409</li>
+                <li><a href="https://www.google.com/maps/place/Amy+Biehl+Charter+High+School/@35.0838636,-106.6533692,18z/data=!4m13!1m7!3m6!1s0x87220cbf53ba8aa7:0x821786f90013da4a!2s123+4th+St+SW,+Albuquerque,+NM+87102!3b1!8m2!3d35.0838965!4d-106.6523875!3m4!1s0x87220cbf4e75672f:0x9182e0d357281cd3!8m2!3d35.0838965!4d-106.6523875"
+                        target="_blank">123 4th St SW, Albuquerque, NM 87102</a></li>
+                <li>Design by <a href="https://html5up.net" target="_blank">HTML5 UP</a></li>
+                <li>Content created by <a
+                        href="https://drive.google.com/file/d/17QB69MGWEWuPCLa5vJfrR4eeEiDbsAjQ/view?usp=sharing"
+                        target="_blank">Michael
+                        Lynam</a></li>
+                <li>Published with <a href="https://ghost.org" target="_blank">Ghost</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    {{!-- Theme Scripts --}}
+    <script src="{{asset "main/js/jquery.min.js"}}"></script>
+    <script src="{{asset "main/js/jquery.scrollex.min.js"}}"></script>
+    <script src="{{asset "main/js/jquery.scrolly.min.js"}}"></script>
+    <script src="{{asset "main/js/browser.min.js"}}"></script>
+    <script src="{{asset "main/js/breakpoints.min.js"}}"></script>
+    <script src="{{asset "main/js/util.js"}}"></script>
+    <script src="{{asset "main/js/main.js"}}"></script>
+
+    {{!-- Ghost outputs important scripts & data with the {ghost_foot} tag
+    it should always be the very last thing before the closing body tag --}}
+    {{ghost_foot}}
+
+</body>
+
+</html>

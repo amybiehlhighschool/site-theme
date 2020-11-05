@@ -1,0 +1,66 @@
+{
+    "name": "massively",
+    "description": "This is Massively, a text-heavy, article-oriented theme for Ghost.",
+    "demo": "https://massively.ghost.io",
+    "version": "1.0.3",
+    "engines": {
+        "ghost": ">=3.0.0",
+        "ghost-api": "v3"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot.jpg"
+    },
+    "scripts": {
+        "dev": "gulp",
+        "zip": "gulp zip",
+        "pretest": "gulp build",
+        "test": "gscan .",
+        "test:ci": "gscan --fatal --verbose .",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; fi"
+    },
+    "author": {
+        "name": "Ghost Foundation",
+        "email": "hello@ghost.org",
+        "url": "https://ghost.org"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Magazine"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TryGhost/Massively.git"
+    },
+    "bugs": "https://github.com/TryGhost/Massively/issues",
+    "contributors": [
+        {
+            "name": "ajlkn",
+            "email": "aj@lkn.io",
+            "url": "https://twitter.com/ajlkn"
+        }
+    ],
+    "devDependencies": {
+        "beeper": "2.0.0",
+        "gscan": "3.5.7",
+        "gulp": "4.0.2",
+        "gulp-livereload": "4.0.2",
+        "gulp-sass": "4.1.0",
+        "gulp-sourcemaps": "2.6.5",
+        "gulp-watch": "5.0.1",
+        "gulp-zip": "5.0.2",
+        "node-sass": "4.14.1"
+    },
+    "config": {
+        "posts_per_page": 12
+    }
+}

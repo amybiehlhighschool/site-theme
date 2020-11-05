@@ -182,7 +182,11 @@
 }
 
 .kg-image {
-    width: 100%;
+    width: 400px;
+
+    @include breakpoint("<=small") {
+        width: 100%;
+    }
 }
 
 .kg-card figcaption {
